@@ -45,6 +45,27 @@ $ podman run \
 	localhost/tulilirockz/libvirtd-server:latest
 ```
 
+Or run as root for proper networking bridging
+
+
+```sh
+$ sudo podman run \
+	-d \
+	--privileged \
+	--net="host" \
+	--device /dev/kvm \
+	--device /dev/mem \
+	--name="libvirtd-server" \
+	-v /proc/modules:/proc/modules:ro \
+	-v /var/lib/libvirt:/var/lib/libvirt:Z \
+	-v /sys/fs/cgroup:/sys/fs/cgroup:rw \
+	--group-add "{{KVM_GID}}" \
+	--pull="never" \
+	localhost/tulilirockz/libvirtd-server:latest
+```
+
+
+
 ## Usage
 
 Firstly make sure to build the image specified on _Building_, create your container using a command like what is specified on the justfile, and remotely access through virt-manager on distrobox (or toolbx).
