@@ -12,6 +12,7 @@ kvm-group:
   groupmod -g {{KVM_GID}} kvm
 
 clean-server:
+	-$CONTAINER_RUNTIME rm $CONTAINER_NAME
 	-$CONTAINER_RUNTIME image rm "{{IMAGE_NAME}}":latest
 
 build-server:
@@ -35,6 +36,6 @@ init-libvirt:
 	$CONTAINER_RUNTIME exec "$CONTAINER_NAME" /usr/bin/systemctl start libvirtd.service
 
 create-client:
-	-distrobox create -i almalinux:latest virt-manager
-	distrobox-enter virt-manager -- sh -c 'sudo dnf update -y && sudo dnf install --setopt=install_weak_deps=False -y virt-manager && sudo dnf install openssh-clients openssh-askpass -y'
+	-distrobox create -i fedora-toolbox:latest virt-manager
+	distrobox-enter virt-manager -- sh -c 'sudo dnf update -y && sudo dnf install -y virt-manager && sudo dnf install openssh-clients openssh-askpass -y'
 
