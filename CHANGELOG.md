@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/tulilirockz/Libvirtd-OCI/compare/v1.0.0...v1.1.0) (2023-10-01)
+
+
+### Features
+
+* proper build + make + docs ([d971740](https://github.com/tulilirockz/Libvirtd-OCI/commit/d9717408fbb51a827e54cebabddb8e0d588aeeca))
+
 ## 1.0.0 (2023-05-20)
 
 
