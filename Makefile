@@ -2,7 +2,7 @@ CONTAINER_RUNTIME := podman
 CONTAINER_BUILDER := buildah
 CONTAINER_NAME := libvirtd
 KVM_GID := 1100
-IMAGE_NAME := libvirtd-server
+IMAGE_NAME := libvirtd-oci
 DEFAULT_PORT := 2222
 
 selinux-perms:

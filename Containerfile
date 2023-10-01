@@ -21,5 +21,4 @@ RUN dnf groupinstall "Virtualization" --allowerasing -y && \
 	rm /container-deps
 
 VOLUME [ "/sys/fs/cgroup" ]
-HEALTHCHECK CMD systemctl status libvirtd.service || exit 1
 CMD [ "/usr/sbin/init" ]
