@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  libvirtd-oci: # Make sure to change the container's root password! (CHANGEME)
+    image: ghcr.io/tulilirockz/libvirtd-oci:latest
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/kvm
+      - /dev/mem
+    volumes:
+      - /proc/modules:/proc/modules:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    group_add:
+      - 1100 # Use your system's KVM group id 
+    ports:
+      - 2222:2222 # Default port for SSHing into this container 
